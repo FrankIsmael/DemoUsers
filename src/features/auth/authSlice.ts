@@ -73,6 +73,7 @@ export const authSlice = createSlice({
     builder
       .addCase(loginAsync.pending, (state, action) => {
         state.status = 'loading';
+        state.error = undefined;
       })
       .addCase(loginAsync.fulfilled, (state, action) => {
         state.status = 'idle';
