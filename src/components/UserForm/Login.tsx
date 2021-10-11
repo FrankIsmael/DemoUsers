@@ -8,7 +8,7 @@ import { SubmitButton } from '../SubmitButton';
 interface UserFormProps {
   onSubmit: (email: string, password: string) => void;
   title: string;
-  error: string;
+  error?: string;
   disabled: boolean;
 }
 
@@ -34,6 +34,7 @@ export const UserForm = ({
           disabled={disabled}
           placeholder="Email"
           name="email"
+          type="email"
           {...email}
         />
         <Input
