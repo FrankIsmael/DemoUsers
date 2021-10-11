@@ -22,10 +22,10 @@ module.exports = {
             ],
             plugins: [
               [
-                '@babel/plugin-syntax-dynamic-import',
+                '@babel/plugin-transform-runtime',
                 {
                   "useESModules": true,
-                  "regenerator": false
+                  "regenerator": true
                 }
               ]
             ]
@@ -36,7 +36,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', 'ts', '.js']
+    extensions: ['.tsx', '.ts', '.js']
   },
   output: {
     filename: 'bundle.js',
