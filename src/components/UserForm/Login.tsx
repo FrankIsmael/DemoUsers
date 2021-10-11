@@ -12,22 +12,22 @@ interface UserFormProps {
   disabled: boolean;
 }
 
-export const UserForm = ({ onSubmit, title, error, disabled }: UserFormProps) => {
-  const [dataForm, setDataForm] = useState({
-    email: '',
-    password: '',
-  });
-
+export const UserForm = ({
+  onSubmit,
+  title,
+  error,
+  disabled,
+}: UserFormProps) => {
   const email = useInputValue('');
   const password = useInputValue('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(email.value, password.value );
+    onSubmit(email.value, password.value);
   };
 
   return (
-    <div style={{height: '100%', display: 'flex'}}>
+    <div style={{ height: '100%', display: 'flex' }}>
       <Form onSubmit={handleSubmit}>
         <Title>{title}</Title>
         <Input
@@ -43,8 +43,9 @@ export const UserForm = ({ onSubmit, title, error, disabled }: UserFormProps) =>
           type="password"
           {...password}
         />
-        <SubmitButton disabled={disabled}>{title}</SubmitButton>
-      {error && <Error>{error}</Error>}
+        <SubmitButton disabled={false}>{title}</SubmitButton>
+        {error && <Error>{error}</Error>}
+      <span style={{color: 'lightgray'}}>Test: eve.holt@reqres.in, cityslicka</span>
       </Form>
     </div>
   );

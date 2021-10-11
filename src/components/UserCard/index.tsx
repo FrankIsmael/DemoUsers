@@ -1,15 +1,14 @@
 import React from 'react';
-import { navigate, RouteComponentProps, useLocation } from '@reach/router';
+import { navigate, useLocation } from '@reach/router';
 
 import { Article, Image, text } from './styles';
 
-interface CardProps extends RouteComponentProps {
+interface CardProps {
   id: number;
   avatar: string;
   first_name: string;
   last_name: string;
   email: string;
-  onClickCard?: (id: number) => void;
 }
 
 export const UserCard = ({
@@ -17,11 +16,7 @@ export const UserCard = ({
   avatar,
   first_name,
   last_name,
-  email,
-  onClickCard = () => {
-    console.log(',,,');
-  },
-  ...rest
+  email
 }: CardProps) => {
   const { pathname } = useLocation();
   const openCardEdition = (id: number) => alert('clicked');

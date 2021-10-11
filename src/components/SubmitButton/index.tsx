@@ -1,14 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 
-import { Button } from './styles'
+import { Button } from './styles';
 
-export const SubmitButton = ({ children, onClick, disabled }) => {
-  return <Button disabled={disabled} onClick={onClick}>{children}</Button>
+interface ButtonProps {
+  children: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled: boolean;
 }
 
-SubmitButton.propTypes = {
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
-}
+export const SubmitButton = ({ children, onClick, disabled }: ButtonProps) => {
+  return (
+    <Button disabled={disabled} onClick={onClick} type="submit">
+      {children}
+    </Button>
+  );
+};
